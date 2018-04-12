@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# Check if we're called from a tty
+tty | grep ^/ || {
+    local tmpfile=$(mktemp --tmpdir=/tmp epipe.XXXXXX)
+    cat > $tmpfile
+    emacsclient -nt $tmpfile
+    # Todo: ansi-color-apply-on-region. rm?
+    sleep 0.5
+    rm "$tmpfile"
+    exit 0
+}
+
+emacsclient -nw
