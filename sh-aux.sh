@@ -133,8 +133,7 @@ file_assert()
 }
 
 with_pwd()
-# Eval CMD with DIR as working directory.
-# Usage:
+# Eval CMD with DIR as working directory. Usage:
 #     with_pwd DIR CMD
 {
     local prev_dir=$PWD
